@@ -1,0 +1,47 @@
+<div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
+	<div fxFlex class="datepicker-component-holder mat-elevation-z4">
+		<mat-toolbar class="datepicker-header">
+			<h3 class="mat-headline center-align">Ranking de Pollos</h3>
+		</mat-toolbar>
+
+		<div class="datepicker-container">
+
+			<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+
+				<div fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50" >
+					<h4  class="mat-subheading-2 center-align">Escoga el día a buscar..</h4>
+					<mat-divider></mat-divider>
+					<mat-form-field>
+						<input matInput [matDatepicker]="picker" [(ngModel)]="fechaEscogida" placeholder="Seleccione el día">
+						<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+						<mat-datepicker #picker></mat-datepicker>
+					</mat-form-field>
+        </div>
+        <button mat-button class="mat-subheading-1 center-align" (click)="verFecha()" > Enviar </button>
+
+	</div>
+
+</div>
+</div>
+
+
+<div fxLayout="column" >
+
+
+  <h1>Ranking de Pollos del día {{fechaMostrar}}</h1>
+    <div fxLayout="column" class="service-card-content">
+
+      <div fxLayout="row" class="service-card-container"   fxLayout.lt-md="column" fxLayoutGap="20px"  >
+
+        <div fxFlex.lt-md="100" fxLayout="column" *ngFor="let categoria of rankPolloList" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlex.gt-sm="20" class="mat-elevation-z4 service-card " >
+
+          <h3 class="mat-title" fxFlex>{{categoria.nombre}}</h3>
+          <p class="mat-body-2"  fxFlex>Cantidad : {{categoria.cantidad}}</p>
+
+
+
+        </div>
+
+      </div>
+  </div>
+  </div>

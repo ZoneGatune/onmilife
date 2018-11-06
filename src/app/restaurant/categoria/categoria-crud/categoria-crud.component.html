@@ -1,0 +1,24 @@
+
+<form class="example-form" #categoriaForm="ngForm" (ngSubmit)="onSubmit(categoriaForm)" >
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="categoriaService.selectedCategoria.$key">
+  <mat-form-field class="example-full-width">
+  <input matInput name="nombre" #name="ngModel" [(ngModel)]="categoriaService.selectedCategoria.nombre" placeholder="Nombre" required>
+  </mat-form-field>
+  <p>
+  <mat-form-field class="example-full-width">
+    <input matInput name="valor" #name="ngModel" [(ngModel)]="categoriaService.selectedCategoria.valor" placeholder="Valor">
+  </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field class="example-full-width">
+      <input matInput name="estado" #name="ngModel" [(ngModel)]="categoriaService.selectedCategoria.estado" placeholder="Estado">
+    </mat-form-field>
+  </p>
+
+<p>
+
+<button mat-raised-button color="primary" type="submit" [disabled]="!categoriaForm.valid">Guardar</button>
+
+</p>
+</form>

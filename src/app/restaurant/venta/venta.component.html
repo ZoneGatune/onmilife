@@ -1,0 +1,75 @@
+<div fxLayout="column" class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
+
+    <div fxFlex class="input-component-holder mat-elevation-z4">
+      <mat-toolbar class="input-header">
+        <h1 class="mat-headline center-align" >Historico Ventas</h1>
+      </mat-toolbar>
+      <div class="input-container">
+
+        <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+
+          <div fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50" >
+
+            <h4  class="mat-subheading-2 center-align">Filtro de ventas</h4>
+
+            <div class="datepicker-container">
+
+                <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+
+                  <div fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50" >
+                    <h4  class="mat-subheading-2 center-align">Escoga el día a buscar..</h4>
+                    <mat-divider></mat-divider>
+                    <mat-form-field>
+                      <input matInput [matDatepicker]="picker" [(ngModel)]="fechaEscogida" placeholder="Seleccione el día">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                  <button mat-button class="mat-subheading-1 center-align" (click)="verFecha()" > Enviar </button>
+
+            </div>
+            <mat-divider></mat-divider>
+
+
+          </div>
+    </div>
+    <div fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50" >
+        <h4 class="mat-subheading-2 center-align">Ventas</h4>
+        <mat-divider></mat-divider>
+        <div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
+
+          <div fxFlex class="table-component-holder mat-elevation-z4">
+            <mat-toolbar class="table-header">
+              <h1 class="mat-headline center-align" >Lista de Ventas del {{fechaMostrar}}</h1>
+            </mat-toolbar>
+            <div class="table-container">
+
+            <table >
+
+                    <tr *ngFor="let menuCrud of boletaList">
+
+                      <td>{{menuCrud.mesa}} - {{menuCrud.codigoMesa}}</td>
+
+                      <td>{{menuCrud.tipoDocumento}}</td>
+                      <td >
+                            <span *ngIf="menuCrud.codigoElectronico.length > 0" >Visa<br></span>
+                            <span *ngIf="!menuCrud.codigoElectronico.length > 0" >Efectivo<br></span>
+                      </td>
+
+
+
+                      <td>s/.{{menuCrud.total}}</td>
+
+                  </tr>
+
+                </table>
+
+
+          </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,111 @@
+
+<div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
+	<div fxFlex class="datepicker-component-holder mat-elevation-z4">
+		<mat-toolbar class="datepicker-header">
+			<h3 class="mat-headline center-align">Cuadre Caja </h3>
+		</mat-toolbar>
+
+		<div class="datepicker-container">
+
+			<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+
+				<div fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50" >
+					<h4  class="mat-subheading-2 center-align">Escoga el día a buscar..</h4>
+					<mat-divider></mat-divider>
+					<mat-form-field>
+						<input matInput [matDatepicker]="picker" [(ngModel)]="fechaEscogida" placeholder="Seleccione el día">
+						<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+						<mat-datepicker #picker></mat-datepicker>
+					</mat-form-field>
+        </div>
+        <button mat-button class="mat-subheading-1 center-align" (click)="verFecha()" > Enviar </button>
+
+	</div>
+
+
+</div>
+
+<div class="input-container">
+
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+
+    <div fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50" >
+      <h4  class="mat-subheading-2 center-align">Mantenimiento de Cuadre Caja - Ingresar Saldo Inicial y Generar Cuadre</h4>
+      <mat-divider></mat-divider>
+      <form class="example-form" #menuForm="ngForm" >
+
+
+        <p>
+          <mat-form-field class="example-full-width">
+            <input matInput name="saldoInicial" #name="ngModel" [(ngModel)]="cuadreCaja.saldoInicial"
+              placeholder="Saldo Inicial"  [disabled]="mostrarSaldoInicial">
+
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field class="example-full-width">
+            <input matInput name="saldoFinal" #name="ngModel" [(ngModel)]="cuadreCaja.saldoFinal"
+              placeholder="Saldo Final" disabled="true">
+
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field class="example-full-width">
+            <input matInput name="fecha" #name="ngModel" [(ngModel)]="cuadreCaja.fecha"
+              placeholder="Fecha"  disabled="true">
+
+          </mat-form-field>
+        </p>
+
+        <div class="row">
+          <button mat-raised-button color="primary" (click)="generarCuadre()"   >Generar Cuadre</button>
+
+          <button mat-raised-button color="primary" (click)="guardarCuadreCaja()"  >Guardar Cuadre</button>
+
+        </div>
+
+      </form>
+
+
+    </div>
+
+    <div fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50">
+      <h4 class="mat-subheading-2 center-align">Caja de Hoy</h4>
+      <mat-divider></mat-divider>
+      <div fxLayout="column" class="components-container-gt-xs" [ngClass.xs]="'components-container-xs'"
+        fxLayoutGap="20px">
+
+        <div fxFlex class="table-component-holder mat-elevation-z4">
+          <mat-toolbar class="table-header">
+            <h1 class="mat-headline center-align">Caja del día {{fechaMostrar}}</h1>
+          </mat-toolbar>
+          <div class="table-container">
+
+            <table print-table="people">
+              <tr>
+                <th>Fecha</th>
+                <th>Saldo Inicial</th>
+                <th>Saldo Final</th>
+              </tr>
+              <tr *ngFor="let caja of cuadreCajaList">
+                <td>{{caja.fecha}}</td>
+                <td>{{caja.saldoInicial}}</td>
+                <td>{{caja.saldoFinal}}</td>
+
+              </tr>
+
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

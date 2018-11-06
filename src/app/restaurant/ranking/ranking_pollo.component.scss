@@ -1,0 +1,75 @@
+.service-header {
+  height: 350px; width: 100%;
+  padding: 30px 0 0 0;
+  color: white;
+  .content {
+       background-color: white;
+  }
+  h3 {
+      margin: 0;
+      margin-bottom: 10px;
+      text-align: center;
+  }
+  p {
+      margin: 0;
+      text-align: center;
+  }
+  mat-divider {
+          border-top-color: white;
+  }
+
+}
+.service-card-content{
+  .service-card-container {
+      padding: 5px;
+      .service-card {
+          transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+          cursor: default;
+          background-color: white;
+          padding: 5px;
+          img {
+              height: 100px;
+          }
+          h3 {
+              margin: 0;
+          }
+          p {
+              margin: 0;
+              text-align: center;
+          }
+          &:hover {
+              transform: translate(0, -8px);
+              box-shadow: 0 20px 20px rgba(0, 0, 0, .16)
+        }
+      }
+  }
+}
+
+// cdk-datepicker {
+	.datepicker-header {
+		background-color: #327ebd;
+		color: white;
+		padding: 0 5px;
+	}
+	.datepicker-container {
+		padding: 5px 15px 15px 15px;
+		// color: white;
+	}
+// }
+.datepicker-component-holder {
+	border: 1px solid #327ebd;
+	background-color: white;
+
+	h4 {
+		color: #327ebd;
+		margin: 14px 0;
+	}
+
+	mat-divider {
+		margin-bottom: 10px;
+	}
+}
+
+.mat-button {
+  background: #5882FA;
+}

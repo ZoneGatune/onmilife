@@ -1,0 +1,14 @@
+<h3 class="mat-display-1">Bienvenido : {{empleado.nombre}}, por favor, escoga la mesa que va a atender</h3>
+<div fxLayout="row" fxLayout="row wrap">
+    <div *ngFor="let menuCrud of mesaCrudList" class="weather mat-elevation-z4 ">
+      <div  fxLayout="row"  fxLayoutAlign="center  start"  class="weatherimage" (click)="OnclickMesa(menuCrud.numero)" >
+          <mat-icon class="weathericons no-margin">
+          </mat-icon>
+          <h2   class="mat-headline place" >
+            {{menuCrud.nombre}} {{menuCrud.numero}} <br> {{menuCrud.estado}}
+          </h2>
+      </div>
+    </div>
+  </div>
+
+

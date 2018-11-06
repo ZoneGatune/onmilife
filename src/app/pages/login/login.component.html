@@ -1,0 +1,32 @@
+<div fxLayout="column" fxFlexFill fxLayoutAlign="center center" style="background-image:url('../../../assets/fondo1.jpg');
+height: 100%;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover; ">
+    <div fxLayout="column" >
+
+        <div class=" mat-elevation-z4">
+            <mat-card>
+                <mat-card-title>Acceso al Restaurante Astrid
+
+                </mat-card-title>
+                <mat-card-content>
+                    <form fxLayout="column" fxLayoutAlign="start stretch">
+
+                        <mat-form-field class="example-full-width">
+                            <input matInput name="username" #name="ngModel" [(ngModel)]="username" placeholder="Ingrese su Usuario" >
+
+                          </mat-form-field>
+
+                          <mat-form-field class="example-full-width">
+                              <input matInput name="clave" type='password' #name="ngModel" [(ngModel)]="clave" placeholder="Ingrese su Clave" >
+
+                            </mat-form-field>
+
+                        <button mat-raised-button color="primary" type="submit"  (click)="login()">Ingresar Al Sistema</button>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
